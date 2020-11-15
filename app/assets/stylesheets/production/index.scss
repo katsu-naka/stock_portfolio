@@ -1,9 +1,14 @@
 .content{
   height: 40vh;
   width: 100%;
-  background-image: image-url('main-background-image.png');
-  background-size: contain;
+  background-color: #333;
   position: relative;
+  border: 1px solid #fff;
+  overflow: hidden;
+}
+
+.product-image{
+  width: 100%;
 }
 
 .content-info{
@@ -12,7 +17,7 @@
   padding: 10px;
   background-color: #ddd;
   border-radius: 1rem;
-  opacity: 0.8;
+  opacity: 0.9;
   position: absolute;
   bottom: 0;
 }
