@@ -18,6 +18,9 @@
   </div>
   <div>
     <%= f.label :product_uri, "作品のURL（任意）"%><br />
-    <%= f.text_field :product, placeholder: "作品のURLを入力"%>
+    <%= f.text_field :product_uri, placeholder: "作品のURLを入力"%>
+  </div>
+  <div class="mt-3">
+    <%= f.submit "投稿する" %>
   </div>
 <% end %>
