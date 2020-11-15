@@ -3,5 +3,6 @@ class ProductsController < ApplicationController
   end
 
   def new
+    @prodact = Prodact.new
   end
 end
