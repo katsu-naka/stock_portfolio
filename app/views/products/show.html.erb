@@ -5,6 +5,15 @@
     <%= image_tag "no_image.png", class:"product-image"%>
   <% end %>
 </div>
+
+<% if @product.user.id == current_user.id %>
+  <div class="mt-5 text-center">
+    <%= link_to "編集", edit_product_path(@product.id), class:"edit-link" %>
+    or
+    <%= link_to "削除", product_path(@product.id), method: :delete, class:"delete-link" %>
+  </div>
+<% end %>
+
 <table class="mt-5 detail-table">
   <tbody>
     <tr>
