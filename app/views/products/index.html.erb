@@ -2,16 +2,19 @@
   <div class="row">
     <% @products.each do |product| %>
       <div class="content col-xl-4">
-          <%=image_tag product.image, class:"product-image" %>
+        <% if product.image.present? %>
+          <%=link_to image_tag(product.image, class:"product-image"), product_path(product.id) %>
+        <% else%>
+          <%=link_to image_tag("no_image.png", class:"product-image"), product_path(product.id) %>
+        <% end %>
         <div class="content-info">
-          <p>作品名：<%= product.title %><p>
+          <p>作品名：<%= link_to product.title, product_path(product.id) %><p>
           <div class="d-flex">
-          <p>ユーザー：<%= product.user.nickname %></p>
+          <p>ユーザー：<%=link_to product.user.nickname, "#" %></p>
           <p>作成日：<%= product.created_at.strftime("%Y/%m/%d") %></p>
           </div>
         </div>
       </div>
     <% end %>
-
   </div>
 </div>
