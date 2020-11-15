@@ -1,0 +1,12 @@
+.wrap{
+  height: 100vh;
+  overflow: hidden;
+  box-sizing: border-box;
+  background-color: orange;
+}
+main{
+  height: 90%;
+  padding: 50px;
+  overflow: scroll;
+  background-color: #eee;
+}

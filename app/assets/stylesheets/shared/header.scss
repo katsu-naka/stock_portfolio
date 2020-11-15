@@ -1,0 +1,32 @@
+.header1{
+  height: 3rem;
+  background-color: orange;
+}
+
+.header1 h1{
+  color: #fff;
+  font-weight: bold;
+  padding: 5px;
+  font-size: 2rem;
+  margin-bottom: 0;
+}
+
+.header2{
+  height: 3rem;
+  background-color: #ffebcd;
+}
+
+.link{
+  text-decoration: none;
+  display: inline-block;
+  color: #ff4500;
+  font-weight: bold;
+  height: 100%;
+  padding: 12px 20px;
+  &:hover{
+    text-decoration: none;
+    color: #fff;
+    background-color: #ff4500;
+  }
+}
+

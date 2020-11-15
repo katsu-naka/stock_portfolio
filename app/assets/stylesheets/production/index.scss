@@ -1,0 +1,23 @@
+.content{
+  height: 40vh;
+  width: 100%;
+  background-image: image-url('main-background-image.png');
+  background-size: contain;
+  position: relative;
+}
+
+.content-info{
+  width: 90%;
+  margin: 10px;
+  padding: 10px;
+  background-color: #ddd;
+  border-radius: 1rem;
+  opacity: 0.8;
+  position: absolute;
+  bottom: 0;
+}
+
+.content-info p{
+  margin: 0 1rem;
+  font-weight: bold;
+}
