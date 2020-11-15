@@ -1,0 +1,2 @@
+class UsresController < ApplicationController
+end
