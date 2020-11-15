@@ -1,0 +1,26 @@
+<h2>ポートフォリオ編集</h2>
+<%= form_with model:@product, local: true do |f| %>
+  <div>
+    <%= f.label :title, "作品名（必須）"%><br />
+    <%= f.text_field :title, placeholder: "作品名を入力"%>
+  </div>
+  <div>
+    <%= f.label :text, "説明（任意）"%><br />
+    <%= f.text_area :text, placeholder: "説明を入力"%>
+  </div>
+  <div>
+    <%= f.label :image, "作品の画像（任意）" %><br />
+    <%= f.file_field :image %>
+  </div>
+  <div>
+    <%= f.label :github_uri, "GitHubのURL（任意）"%><br />
+    <%= f.text_field :github_uri, placeholder: "GitHubのURLを入力"%>
+  </div>
+  <div>
+    <%= f.label :product_uri, "作品のURL（任意）"%><br />
+    <%= f.text_field :product_uri, placeholder: "作品のURLを入力"%>
+  </div>
+  <div class="mt-3">
+    <%= f.submit "更新する" %>
+  </div>
+<% end %>
