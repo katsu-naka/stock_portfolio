@@ -1,0 +1,7 @@
+<h2><%= @user.nickname %>さんのユーザーページ</h2>
+<h2><%= @user.nickname %>さんの作品リスト</h2>
+<div class="container-fulid">
+  <div class="row">
+    <%= render partial: "products/product", collection: @products %>
+  </div>
+<div>
