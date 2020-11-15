@@ -1,0 +1,28 @@
+.item-box-img {
+  width: 60%;
+  min-height: 500px;
+  background-color: #ddd;
+  object-fit: contain;
+  margin: 0 auto;
+}
+
+.detail-table {
+  margin-bottom: 30px;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.detail-item {
+  width: 20%;
+  background-color: #eee;
+  border: 1px solid #aaa;
+  font-size: 14px;
+  text-align: center;
+}
+
+.detail-value {
+  width: 80%;
+  padding: 20px;
+  border: 1px solid #aaa;
+  font-size: 14px;
+}
