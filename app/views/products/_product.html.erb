@@ -7,7 +7,7 @@
         <div class="content-info">
           <p>作品名：<%= link_to product.title, product_path(product.id) %><p>
           <div class="d-flex">
-          <p>ユーザー：<%=link_to product.user.nickname, "#" %></p>
+          <p>ユーザー：<%=link_to product.user.nickname, user_path(product.user.id) %></p>
           <p>作成日：<%= product.created_at.strftime("%Y/%m/%d") %></p>
           </div>
         </div>

@@ -19,6 +19,5 @@ class User < ApplicationRecord
   validates :last_name_kana, format: { with: NAME_KANA_REGEX, message: 'は全角カタカナで入力してください' }
   end
   validates :email, uniqueness: { case_sensitive: false }
-  validates :password, format: { with: PASSWORD_REGEX, message: 'は半角英数字両方を含めて入力してください' }
-      
+  validates :profile, length: { maximum: 200, message: "は200文字以内で入力してください" }
 end
