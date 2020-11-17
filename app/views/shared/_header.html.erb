@@ -9,6 +9,7 @@
           <%= link_to "ポートフォリオをアップロード", new_product_path, class:"new-product link"%>
         </div>
         <div class="header2 col-lg-3">
+          <%= link_to "マイページ", user_path(current_user.id), class:"my-page link"%>
           <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:"sign-out link"%>
         </div>
       <% else %>

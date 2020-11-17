@@ -34,11 +34,15 @@
     </tr>
     <tr>
       <th class="detail-item">GitHub URL</th>
-      <td class="detail-value"><%=link_to @product.github_uri, "#"%></td>
+      <td class="detail-value">
+        <%=link_to @product.github_uri, @product.github_uri, target: :_blank, rel: "noopener noreferrer" %>
+        </td>
     </tr>
     <tr>
       <th class="detail-item">作品サイトURL</th>
-      <td class="detail-value"><%=link_to @product.product_uri, "#" %></td>
+      <td class="detail-value">
+        <%=link_to @product.product_uri, @product.product_uri, target: :_blank, rel: "noopener noreferrer" %>
+      </td>
     </tr>
   </tbody>
 </table>
