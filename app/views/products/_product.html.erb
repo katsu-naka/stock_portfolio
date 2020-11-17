@@ -1,28 +1,23 @@
-      <div class="content col-xl-4">
-
-        <div>
-        <% if product.image.present? %>
-          <%=link_to image_tag(product.image, class:"product-image"), product_path(product.id) %>
-        <% else%>
-          <%=link_to image_tag("no_image.png", class:"product-image"), product_path(product.id) %>
+<div>
+  <% if product.image.present? %>
+    <%=link_to image_tag(product.image, class:"product-image"), product_path(product.id) %>
+  <% else%>
+    <%=link_to image_tag("no_image.png", class:"product-image"), product_path(product.id) %>
+  <% end %>
+</div>
+<div class="content-info">
+  <p>作品名：<%= link_to product.title, product_path(product.id) %><p>
+  <div class="d-flex">
+    <p>ユーザー：<%=link_to product.user.nickname, user_path(product.user.id) %></p>
+    <p>作成日：<%= product.created_at.strftime("%Y/%m/%d") %></p>
+    <%if user_signed_in? %>
+      <div>
+        <% if current_user.liked_by?(product.id)%>
+          <%= link_to image_tag('star_on.png', size: '30x30' ), destroy_like_path(product), method: :DELETE, remote: true %><%= product.likes.count %>
+        <% else %>
+          <%= link_to image_tag('star_off.png', size: '30x30' ), create_like_path(product), method: :POST, remote: true %><%= product.likes.count %>
         <% end %>
-        </div>
-
-
-        <div class="content-info">
-          <p>作品名：<%= link_to product.title, product_path(product.id) %><p>
-          <div class="d-flex">
-          <p>ユーザー：<%=link_to product.user.nickname, user_path(product.user.id) %></p>
-          <p>作成日：<%= product.created_at.strftime("%Y/%m/%d") %></p>
-            <%if user_signed_in? %>
-              <div>
-                <% if current_user.liked_by?(product.id)%>
-                  <%= link_to image_tag('star_on.png', size: '30x30' ), destroy_like_path(product), method: :DELETE %><%= product.likes.count %>
-                <% else %>
-                  <%= link_to image_tag('star_off.png', size: '30x30' ), create_like_path(product), method: :POST %><%= product.likes.count %>
-                <% end %>
-              </div>
-            <% end %>
-          </div>
-        </div>
       </div>
+    <% end %>
+  </div>
+</div>
