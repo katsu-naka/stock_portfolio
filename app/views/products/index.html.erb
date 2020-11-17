@@ -1,5 +1,9 @@
 <div class="container-fulid">
   <div class="row">
-    <%= render partial: "product", collection: @products %>
+    <% @products.each do |product| %>
+      <div class="content col-xl-4"  id="product_<%= product.id %>" >
+        <%= render "product", product: product %>
+      </div>
+    <% end %>
   </div>
 </div>
