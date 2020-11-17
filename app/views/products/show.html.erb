@@ -47,6 +47,20 @@
   </tbody>
 </table>
 
+<div class="text-center mt-5">
+  <p>コメント</p>
+  <%= form_with(model: [@product, @comment] ,local: true) do |f| %>
+    <%= f.text_area :comment %>
+    <%= f.submit "送信"%>
+  <% end %>
+</div>
+
+<div class="text-center mt-5">
+  <% @comments.reverse.each do |comment|%>
+    <p><%= comment.created_at.strftime("%Y/%m/%d") %>　<%= comment.user.nickname %>：<%= comment.comment %></p>
+  <% end %>
+</div>
+
 <div class="mt-5 mb-5 d-flex justify-content-around">
   <% if @product.next.present? %>
     <%= link_to "←次のポートフォリオ", product_path(@product.next.id)%>
