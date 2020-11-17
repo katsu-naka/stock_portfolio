@@ -1,9 +1,21 @@
       <div class="content col-xl-4">
+      
+        <div>
         <% if product.image.present? %>
           <%=link_to image_tag(product.image, class:"product-image"), product_path(product.id) %>
         <% else%>
           <%=link_to image_tag("no_image.png", class:"product-image"), product_path(product.id) %>
         <% end %>
+        </div>
+
+        <div>
+          <% if current_user.liked_by?(product.id) %>
+            <p>いいねを外す</p>
+          <% else %>
+            <p>いいね</p>
+          <% end %>
+        </div>
+
         <div class="content-info">
           <p>作品名：<%= link_to product.title, product_path(product.id) %><p>
           <div class="d-flex">

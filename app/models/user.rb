@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :products
+  has_many :likes
   
   NAME_REGEX = /\A[ぁ-んァ-ン一-龥]+\z/.freeze
   NAME_KANA_REGEX = /\A[ァ-ヶー－]+\z/.freeze
@@ -20,4 +21,8 @@ class User < ApplicationRecord
   end
   validates :email, uniqueness: { case_sensitive: false }
   validates :profile, length: { maximum: 200, message: "は200文字以内で入力してください" }
+
+  def liked_by?(product_id)
+    likes.where(product_id: product_id).exists?
+  end
 end
