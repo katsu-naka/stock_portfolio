@@ -1,3 +1,13 @@
+<div class="mb-5 d-flex justify-content-around">
+  <% if @product.next.present? %>
+    <%= link_to "←次のポートフォリオ", product_path(@product.next.id)%>
+  <% end %>
+    <%= link_to "トップページへ戻る", root_path%>
+  <%if @product.previous.present?%>
+    <%= link_to "前のポートフォリオ→", product_path(@product.previous.id)%>
+  <% end %>
+</div>
+
 <div class="item-box-img">
   <%if @product.image.present?%>
     <%= image_tag @product.image, class:"product-image" %>
@@ -34,21 +44,31 @@
     </tr>
     <tr>
       <th class="detail-item">GitHub URL</th>
-      <td class="detail-value"><%=link_to @product.github_uri, "#"%></td>
+      <td class="detail-value">
+        <%=link_to @product.github_uri, @product.github_uri, target: :_blank, rel: "noopener noreferrer" %>
+        </td>
     </tr>
     <tr>
       <th class="detail-item">作品サイトURL</th>
-      <td class="detail-value"><%=link_to @product.product_uri, "#" %></td>
+      <td class="detail-value">
+        <%=link_to @product.product_uri, @product.product_uri, target: :_blank, rel: "noopener noreferrer" %>
+      </td>
     </tr>
   </tbody>
 </table>
 
-<div class="mt-5 mb-5 d-flex justify-content-around">
-  <% if @product.next.present? %>
-    <%= link_to "←次のポートフォリオ", product_path(@product.next.id)%>
-  <% end %>
-    <%= link_to "トップページへ戻る", root_path%>
-  <%if @product.previous.present?%>
-    <%= link_to "前のポートフォリオ→", product_path(@product.previous.id)%>
-  <% end %>
+<div class="comment-area">
+  <div class="mt-5">
+    <p>コメント</p>
+    <%= form_with(model: [@product, @comment] ,local: true) do |f| %>
+    <div class="d-flex">
+      <%= f.text_area :comment ,placeholder:"コメントを入力...", class:"comment-form"%>
+      <%= f.submit "送信",class:"comment-submit" %>
+    </div>
+    <% end %>
+  </div>
+
+  <div class="mt-5 mb-5">
+    <%= render 'comments/comment' , comments: @commets %>
+  </div>
 </div>
