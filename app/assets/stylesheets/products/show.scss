@@ -38,3 +38,41 @@
   border: 1px solid #aaa;
   font-size: 14px;
 }
+
+.comment-area{
+  width: 60%;
+  margin: 0 auto;
+}
+
+.comment-area p{
+  font: bold;
+}
+
+.comment-form{
+  border: none;
+  background-color: #eee;
+  width: calc( 100% - 50px);
+  border-bottom: 1px solid #bbb;
+}
+
+.comment-submit{
+  display: block;
+  width: 60px;
+  border: none;
+  color: #fff;
+  background-color: #ff4500;
+}
+
+.comment{
+  border-bottom: 1px solid #bbb;
+  color: #333;
+}
+
+.comment_user{
+  color: #999  ;
+}
+
+.comment-nickname{
+  text-decoration: none;
+  color: #999;
+}

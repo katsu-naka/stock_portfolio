@@ -1,3 +1,13 @@
+<div class="mb-5 d-flex justify-content-around">
+  <% if @product.next.present? %>
+    <%= link_to "←次のポートフォリオ", product_path(@product.next.id)%>
+  <% end %>
+    <%= link_to "トップページへ戻る", root_path%>
+  <%if @product.previous.present?%>
+    <%= link_to "前のポートフォリオ→", product_path(@product.previous.id)%>
+  <% end %>
+</div>
+
 <div class="item-box-img">
   <%if @product.image.present?%>
     <%= image_tag @product.image, class:"product-image" %>
@@ -47,26 +57,26 @@
   </tbody>
 </table>
 
-<div class="text-center mt-5">
-  <p>コメント</p>
-  <%= form_with(model: [@product, @comment] ,local: true) do |f| %>
-    <%= f.text_area :comment %>
-    <%= f.submit "送信"%>
-  <% end %>
-</div>
+<div class="comment-area">
+  <div class="mt-5">
+    <p>コメント</p>
+    <%= form_with(model: [@product, @comment] ,local: true) do |f| %>
+    <div class="d-flex">
+      <%= f.text_area :comment ,placeholder:"コメントを入力...", class:"comment-form"%>
+      <%= f.submit "送信",class:"comment-submit"%>
+    </div>
+    <% end %>
+  </div>
 
-<div class="text-center mt-5">
-  <% @comments.reverse.each do |comment|%>
-    <p><%= comment.created_at.strftime("%Y/%m/%d") %>　<%= comment.user.nickname %>：<%= comment.comment %></p>
-  <% end %>
-</div>
-
-<div class="mt-5 mb-5 d-flex justify-content-around">
-  <% if @product.next.present? %>
-    <%= link_to "←次のポートフォリオ", product_path(@product.next.id)%>
-  <% end %>
-    <%= link_to "トップページへ戻る", root_path%>
-  <%if @product.previous.present?%>
-    <%= link_to "前のポートフォリオ→", product_path(@product.previous.id)%>
-  <% end %>
+  <div class="mt-5">
+    <% @comments.reverse.each do |comment|%>
+      <div class="comment_user pl-2">
+        <%= link_to comment.user.nickname, user_path(comment.user), class:"comment-nickname" %>
+        ・<%= comment.created_at.strftime("%Y/%m/%d") %>
+      </div>
+      <div class="comment mb-3 pl-2">
+        <p><%= comment.comment %><p>
+      </div>
+    <% end %>
+  </div>
 </div>
