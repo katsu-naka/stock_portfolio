@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   resources :products do
     resources :comments, only: [:new, :create ]
   end
-  resources :users
+  resources :users do
+    resources :contacts
+  end
   post 'like/:id' => 'likes#create', as: 'create_like'
   delete 'like/:id' => 'likes#destroy', as: 'destroy_like'
 end
