@@ -1,28 +1,38 @@
+.check-contact{
+  padding: 10px;
+  color: #fff;
+  background-color: #ff4500;
+  border-radius: 5px;
+  &:hover{
+    text-decoration: none;
+    color: #fff;
+    opacity: 0.8;
+  }
+}
+
+.profile-area{
+  border-bottom: 1px solid #bbb;
+}
+
 .photo-space{
   width: 150px;
   height: 150px;
   overflow: hidden;
+  border: 1px solid #bbb;
+}
+
+.photo-space p{
+  text-align: center;
+  font-weight: bold;
+  color: #bbb;
 }
 
 .user-photo{
   width: 100%;
 }
 
-.check-contact{
-  padding: 10px;
-  color: #fff;
-  background-color: #ff4500;
-  border-radius: 5px;
-    &:hover{
-      text-decoration: none;
-      color: #fff;
-      opacity: 0.8;
-    }
-}
-
 .profile{
   min-height: 200px;
-  border: 1px solid #bbb;
-  padding: 5px;
-  background-color: #fff;
+  width: 100%;
+  padding: 10px;
 }

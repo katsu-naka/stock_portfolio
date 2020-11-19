@@ -1,3 +1,22 @@
+<div class="mt-1 d-flex like-star">
+  <%if user_signed_in? %>
+    <% if current_user.liked_by?(product.id)%>
+      <div>
+        <%= link_to image_tag('star_on.png', size: '30x30' ), destroy_like_path(product), method: :DELETE, remote: true %>
+      </div>
+      <div class="ml-1">
+        <p><%= product.likes.count %></p>
+      </div>
+    <% else %>
+      <div>
+        <%= link_to image_tag('star_off.png', size: '30x30' ), create_like_path(product), method: :POST, remote: true %>
+      </div>
+      <div class="ml-1">
+        <p><%= product.likes.count %></p>
+      </div>
+    <% end %>
+  <% end %>
+</div>
 <div>
   <% if product.image.present? %>
     <%=link_to image_tag(product.image, class:"product-image"), product_path(product.id) %>
@@ -7,17 +26,8 @@
 </div>
 <div class="content-info">
   <p>作品名：<%= link_to product.title, product_path(product.id) %><p>
-  <div class="d-flex">
+  <div class="d-flex justify-content-between">
     <p>ユーザー：<%=link_to product.user.nickname, user_path(product.user.id) %></p>
-    <p>作成日：<%= product.created_at.strftime("%Y/%m/%d") %></p>
-    <%if user_signed_in? %>
-      <div>
-        <% if current_user.liked_by?(product.id)%>
-          <%= link_to image_tag('star_on.png', size: '30x30' ), destroy_like_path(product), method: :DELETE, remote: true %><%= product.likes.count %>
-        <% else %>
-          <%= link_to image_tag('star_off.png', size: '30x30' ), create_like_path(product), method: :POST, remote: true %><%= product.likes.count %>
-        <% end %>
-      </div>
-    <% end %>
+    <p class="create-date">作成日：<%= product.created_at.strftime("%Y/%m/%d") %></p>
   </div>
 </div>

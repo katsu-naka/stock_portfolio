@@ -1,25 +1,32 @@
-<h2><%= @user.nickname %>さんのユーザーページ</h2>
-<div class="photo-space">
-  <%= image_tag(@user.user_photo, class:"user-photo")%>
+<div class="profile-area mb-3">
+  <h2><%= @user.nickname %>さんのユーザーページ</h2>
+  <% if user_signed_in? && current_user.id == @user.id %>
+    <div>
+      <%= link_to "ユーザー情報・プロフィール編集",  edit_user_registration_path(@user.id)%>
+    </div>
+    <div class="mt-3 mb-5">
+      <%= link_to "オファーを確認する", user_contacts_path(@user.id), class:"check-contact"%>
+    </div>
+  <% end %>
+  <% if user_signed_in? && current_user.id != @user.id %>
+    <div class="mt-3 mb-5">
+      <%= link_to "オファーメッセージを送る", new_user_contact_path(@user.id)%> 
+    </div>
+  <% end %>
 </div>
-<% if user_signed_in? && current_user.id == @user.id %>
-  <div>
-    <%= link_to "ユーザー情報・プロフィール編集",  edit_user_registration_path(@user.id)%>
-  </div>
-  <div class="mt-3 mb-5">
-    <%= link_to "オファーを確認する", user_contacts_path(@user.id), class:"check-contact"%>
-  </div>
-<% end %>
-
-<% if user_signed_in? && current_user.id != @user.id %>
-  <div class="mt-3 mb-5">
-    <%= link_to "オファーメッセージを送る", new_user_contact_path(@user.id)%> 
-  </div>
-<% end %>
 
 <h3>プロフィール</h3>
-<div class="profile mb-3">
-<p><%= @user.profile %></p>
+<div class="profile-area mb-3 d-flex">
+  <div class="photo-space">
+    <% if @user.user_photo.present? %>
+    <%= image_tag(@user.user_photo, class:"user-photo")%>
+    <% else %>
+      <P>NO IMAGE</p>
+    <% end %>
+  </div>
+  <div class="profile">
+    <p><%= @user.profile %></p>
+  </div>
 </div>
 
 <h3><%= @user.nickname %>さんの作品一覧</h3>
