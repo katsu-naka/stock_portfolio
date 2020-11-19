@@ -1,3 +1,18 @@
-// Place all the styles related to the users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.check-contact{
+  padding: 10px;
+  color: #fff;
+  background-color: #ff4500;
+  border-radius: 5px;
+    &:hover{
+      text-decoration: none;
+      color: #fff;
+      opacity: 0.8;
+    }
+}
+
+.profile{
+  min-height: 200px;
+  border: 1px solid #bbb;
+  padding: 5px;
+  background-color: #fff;
+}
