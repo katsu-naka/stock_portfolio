@@ -36,7 +36,12 @@
     </tr>
     <tr>
       <th class="detail-item">投稿ユーザー</th>
-      <td class="detail-value"><%= link_to @product.user.nickname, "#" %></td>
+      <td class="detail-value">
+        <%= link_to @product.user.nickname, "#" %>
+        <% if user_signed_in? && current_user.id != @product.user_id %>
+        （ <%= link_to "オファーメッセージを送る", new_user_contact_path(@product.user.id)%> ）
+        <%end%>
+      </td>
     </tr>
     <tr>
       <th class="detail-item">投稿日</th>
@@ -59,15 +64,18 @@
 
 <div class="comment-area">
   <div class="mt-5">
-    <p>コメント</p>
-    <%= form_with(model: [@product, @comment] ,local: true) do |f| %>
-    <div class="d-flex">
-      <%= f.text_area :comment ,placeholder:"コメントを入力...", class:"comment-form"%>
-      <%= f.submit "送信",class:"comment-submit" %>
-    </div>
+    <% if user_signed_in? %>
+      <p>コメント</p>
+      <%= form_with(model: [@product, @comment] ,local: true) do |f| %>
+      <div class="d-flex">
+        <%= f.text_area :comment ,placeholder:"コメントを入力...", class:"comment-form"%>
+        <%= f.submit "送信",class:"comment-submit" %>
+      </div>
+      <% end %>
+    <% else %>
+      <p>コメントをするにはログインしてください</p>
     <% end %>
   </div>
-
   <div class="mt-5 mb-5">
     <%= render 'comments/comment' , comments: @commets %>
   </div>

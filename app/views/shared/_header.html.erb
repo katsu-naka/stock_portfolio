@@ -1,7 +1,12 @@
 <header>
   <div class="content-fulid">
-    <div class="header1">
+    <div class="header1 d-flex justify-content-between align-items-center">
       <div><%=link_to "STOCK PORTFOLIO", root_path ,class:"app-title"%></div>
+      <% if user_signed_in? %>
+        <p class="current-user"><%= current_user.nickname%>さん ログイン中</p>
+      <% else %>
+        <p class="current-user">ログインしてください</p>
+      <% end %>
     </div>
     <div class="row">
       <% if user_signed_in? %>
