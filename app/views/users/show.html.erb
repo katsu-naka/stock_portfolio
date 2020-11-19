@@ -1,4 +1,7 @@
 <h2><%= @user.nickname %>さんのユーザーページ</h2>
+<div class="photo-space">
+  <%= image_tag(@user.user_photo, class:"user-photo")%>
+</div>
 <% if user_signed_in? && current_user.id == @user.id %>
   <div>
     <%= link_to "ユーザー情報・プロフィール編集",  edit_user_registration_path(@user.id)%>

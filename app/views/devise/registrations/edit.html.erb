@@ -69,6 +69,11 @@
     <%= f.text_area :profile, autofocus: true %>
   </div>
 
+  <div class="field">
+    <%= f.label :user_photo, "プロフィール画像"%><br />
+    <%= f.file_field :user_photo, autofocus: true %>
+  </div>
+
   <div class="actions mb-5">
     <%= f.submit "更新する" %>
   </div>
