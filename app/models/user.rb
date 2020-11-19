@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :comments,dependent: :destroy
   has_many :contacts,dependent: :destroy
+  has_one_attached :user_photo
   
   NAME_REGEX = /\A[ぁ-んァ-ン一-龥]+\z/.freeze
   NAME_KANA_REGEX = /\A[ァ-ヶー－]+\z/.freeze
