@@ -1,0 +1,7 @@
+<%= @user.nickname %>さんにオファーメッセージを送る
+<p>※オファーを送ると自動的にEメール情報が相手ユーザーに公開されます</p>
+
+<%= form_with(model: [@user,@contact], local: true) do |f| %>
+  <%= f.text_area :message %>
+  <%= f.submit "送信する"%>
+<% end %>

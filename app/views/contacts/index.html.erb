@@ -1,0 +1,7 @@
+<h2>オファーリスト</h2>
+<p>下記のユーザーからオファーが届いています</p>
+
+<% @contacts.each do |contact| %>
+  <p><%= contact.user.nickname %>:<%= contact.message%></p>
+  <%= link_to "確認・返信する", user_contact_path(contact.user_id,contact.id) %>
+<% end %>
