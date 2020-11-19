@@ -1,3 +1,24 @@
-<%= @contact.user.nickname%>
-<%= @contact.user.email%>
-<%= @contact.message %>
+<div class="contact-show">
+  <h2>オファーメッセージ詳細</h2>
+  <p>※サービス外で発生したユーザー間のトラブルに関しては当サービスは一切責任を負いかねます</p>
+</div>
+<table class="mt-5 detail-table">
+  <tbody>
+    <tr>
+      <th class="detail-item">受信日時</th>
+      <td class="detail-value"><%= @contact.created_at.strftime("%Y/%m/%d %H:%M:%S") %></td>
+    </tr>
+    <tr>
+      <th class="detail-item">ユーザー名</th>
+      <td class="detail-value"><%=link_to @contact.user.nickname, user_path(@contact.user.id) %></td>
+    </tr>
+    <tr>
+      <th class="detail-item">Eメール</th>
+      <td class="detail-value"><%= @contact.user.email%></td>
+    </tr>
+    <tr>
+      <th class="detail-item">オファーメッセージ</th>
+      <td class="detail-value"><%= @contact.message %></td>
+    </tr>
+  </tbody>
+</table>

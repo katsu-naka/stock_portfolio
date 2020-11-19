@@ -1,7 +1,9 @@
-<%= @user.nickname %>さんにオファーメッセージを送る
-<p>※オファーを送ると自動的にEメール情報が相手ユーザーに公開されます</p>
+<div class="contact-new">
+  <h2><%= @user.nickname %>さんにオファーメッセージを送る</h2>
+  <p>※オファーを送ると自動的にEメール情報が相手ユーザーに公開されます</p>
 
-<%= form_with(model: [@user,@contact], local: true) do |f| %>
-  <%= f.text_area :message %>
-  <%= f.submit "送信する"%>
-<% end %>
+  <%= form_with(model: [@user,@contact], local: true) do |f| %>
+    <%= f.text_area :message, class:"contact-form" %>
+    <%= f.submit "送信する", class:"contact-submit"%>
+  <% end %>
+</div>

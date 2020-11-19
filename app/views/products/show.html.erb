@@ -37,7 +37,7 @@
     <tr>
       <th class="detail-item">投稿ユーザー</th>
       <td class="detail-value">
-        <%= link_to @product.user.nickname, "#" %>
+        <%= link_to @product.user.nickname, user_path(@product.user.id) %>
         <% if user_signed_in? && current_user.id != @product.user_id %>
         （ <%= link_to "オファーメッセージを送る", new_user_contact_path(@product.user.id)%> ）
         <%end%>
@@ -45,7 +45,7 @@
     </tr>
     <tr>
       <th class="detail-item">投稿日</th>
-      <td class="detail-value"><%= @product.created_at.strftime("%Y/%m/%d") %></td>
+      <td class="detail-value"><%= @product.created_at.strftime("%Y/%m/%d %H:%M:%S") %></td>
     </tr>
     <tr>
       <th class="detail-item">GitHub URL</th>

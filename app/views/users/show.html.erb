@@ -1,13 +1,25 @@
 <h2><%= @user.nickname %>さんのユーザーページ</h2>
 <% if user_signed_in? && current_user.id == @user.id %>
-  <%= link_to "ユーザー情報・プロフィール編集",  edit_user_registration_path(@user.id)%>
-  <%= link_to "オファーを確認する", user_contacts_path(@user.id)%>
+  <div>
+    <%= link_to "ユーザー情報・プロフィール編集",  edit_user_registration_path(@user.id)%>
+  </div>
+  <div class="mt-3 mb-5">
+    <%= link_to "オファーを確認する", user_contacts_path(@user.id), class:"check-contact"%>
+  </div>
 <% end %>
 
-<h2>プロフィール</h2>
-<p><%= @user.profile %></p>
+<% if user_signed_in? && current_user.id != @user.id %>
+  <div class="mt-3 mb-5">
+    <%= link_to "オファーメッセージを送る", new_user_contact_path(@user.id)%> 
+  </div>
+<% end %>
 
-<h2><%= @user.nickname %>さんの作品一覧</h2>
+<h3>プロフィール</h3>
+<div class="profile mb-3">
+<p><%= @user.profile %></p>
+</div>
+
+<h3><%= @user.nickname %>さんの作品一覧</h3>
 
 <div class="container-fulid">
   <div class="row">
