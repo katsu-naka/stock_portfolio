@@ -1,5 +1,6 @@
 <h2>ポートフォリオ投稿</h2>
 <%= form_with model:@product, local: true do |f| %>
+<%= render 'shared/error_messages',model: f.object %>
   <div>
     <%= f.label :title, "作品名（必須）"%><br />
     <%= f.text_field :title, placeholder: "作品名を入力"%>
