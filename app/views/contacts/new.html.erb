@@ -3,6 +3,7 @@
   <p>※オファーを送ると自動的にEメール情報が相手ユーザーに公開されます</p>
 
   <%= form_with(model: [@user,@contact], local: true) do |f| %>
+  <%= render 'shared/error_messages',model: f.object %>
     <%= f.text_area :message, class:"contact-form" %>
     <%= f.submit "送信する", class:"contact-submit"%>
   <% end %>

@@ -1,0 +1,16 @@
+ja:
+ activerecord:
+   attributes:
+     user:
+       nickname: ニックネーム
+       first_name: 名前
+       last_name: 苗字
+       first_name_kana: 名前（カナ）
+       last_name_kana: 苗字（カナ）
+       birth: 生年月日
+       phone_number: 電話番号
+       profile: プロフィール
+     product:
+       title: 作品名
+     contact:
+       message: メッセージ
