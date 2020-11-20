@@ -11,6 +11,7 @@ RSpec.describe Comment, type: :model do
         expect(@comment).to be_valid
       end
     end
+    
     context 'コメント送信が失敗する' do
       it "commentが空だと送信できない" do
         @comment.comment = ""
