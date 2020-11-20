@@ -4,7 +4,7 @@
 
   <%= form_with(model: [@user,@contact], local: true) do |f| %>
   <%= render 'shared/error_messages',model: f.object %>
-    <%= f.text_area :message, class:"contact-form" %>
+    <%= f.text_area :message,placeholder:"メッセージを入力...", class:"contact-form" %>
     <%= f.submit "送信する", class:"contact-submit"%>
   <% end %>
 </div>
