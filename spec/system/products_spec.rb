@@ -78,7 +78,7 @@ RSpec.describe 'ポートフォリオ詳細', type: :system do
     expect(page).to have_link("#{@product.title}"), href: product_path(@product)
     # 詳細ページに遷移する
     visit product_path(@product)
-    # 詳細ページにポートフォリオ１の内容が含まれている
+    # 詳細ページにポートフォリオの内容が含まれている
     expect(page).to have_content("#{@product.title}")
     expect(page).to have_content("#{@product.text}")
     # メッセージ用のフォームが存在する
@@ -91,10 +91,10 @@ RSpec.describe 'ポートフォリオ詳細', type: :system do
     expect(page).to have_link("#{@product.title}"), href: product_path(@product)
     # 詳細ページに遷移する
     visit product_path(@product)
-    # 詳細ページにポートフォリオ１の内容が含まれている
+    # 詳細ページにポートフォリオの内容が含まれている
     expect(page).to have_content("#{@product.title}")
     expect(page).to have_content("#{@product.text}")
-    # メッセージ用のフォームが存在しない
+    # コメント用のフォームが存在しない
     expect(page).to have_no_selector(".comment-form")
   end
 end
@@ -190,9 +190,9 @@ RSpec.describe 'ポートフォリオ削除', type: :system do
       expect{
         find_link('削除', href: product_path(@product)).click
       }.to change { Product.count }.by(-1)
-      # # トップページに遷移する
+      # トップページに遷移する
       visit root_path
-      # # トップページに削除したポートフォリオ内容が存在しないことを確認する
+      # トップページに削除したポートフォリオ内容が存在しないことを確認する
       expect(page).to have_no_content("#{@product.title}")
     end
   end
