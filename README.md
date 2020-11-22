@@ -19,39 +19,43 @@
 現状はユーザーそれぞれが個人のSNS等やブログ等を活用してポートフォリオの発信活動をすることが主流ですが、  SNS等を使用した情報発信の課題は伝えたい情報が散乱してしまい、効率的にPR活動を行えない、作品の管理が煩雑になるという点です。  
 「STOCK PORTFOLIO」は言わば「作品帳」のようなものです。ユーザーの作品を公の場に発信しつつもそれぞれの作品は一元的に閲覧、管理できます。求職者側と採用側が互いに利用しやすいサービスを目指しております。  
 ## ユーザーの課題と「STOCK PORTFOLIO」で解決できること
+- 課題１：
 
 ## 工夫したポイント
 
 # 開発環境
-## サーバーサイド
-- プログラミング言語
-  - Ruby 2.6.5
-- フレームワーク
-  - Ruby on Rails 6.0.0
-- データベース
-  - Mysql
-## フロント
-- マークアップ
-  - HTML5
-- レイアウト、スタイル
-  - Bootstrap
-  - CSS,SCSS
-  - JavaScript
-## インフラ
-- サーバー
-  - Amazon EC2
-- ストレージ
-  - Amazon S3
-## その他ツール
+### バックエンド
+- Ruby
+- Ruby on Rails
+### フロント
+- HTML5
+- Bootstrap
+- CSS,SCSS
+- JavaScript
+### データベース
+- MySQL
+- MariaDB（本番環境）
+- Sequel Pro
+### インフラ
+- Amazon EC2
+- Capistrano
+### Webサーバ（本番環境）
+- nginx
+### アプリケーションサーバ（本番環境）
+- unicorn
+### ストレージ
+- Amazon S3
+### テスト
+- RSpec
+### その他ツール
 - テキストエディタ
   - Visual Studio Code
-- バージョン管理
+- ソース管理
   - GitHub
 - DB設計・ER図作成
   - draw.io
 - 要件定義整理
   - Google Spreadsheet
-
-# 現状の課題と追加実装予定
+# 追加実装予定
 
 # データベース設計
